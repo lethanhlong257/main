@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <%- include('./parts/head.ejs')%>
+    
+</head>
+
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    
+
+    <!-- body of page -->
+
+    
+    <div class="container">
+
+        <section>
+            
+        </section>
+        <section class = "news" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col-sm-3 col-4" id="myScrollspy">
+                        <ul class="nav nav-pills flex-column" id="news-category-menu">
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#section1">Tổng hợp</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section2">Bóng đá</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section3">Hậu trường</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#section4">Golf</a>
+                            </li>
+
+                            
+                        </ul>
+                    </nav>
+                    <div class="col-sm-9 col-8">
+                        <div id="section1"> 
+                            <div class="news-part">
+                                <div class="container">
+                                    <div class="row">
+                                        <!-- start tin tuc bong da -->
+                                        <div class="article-hot-news">
+                                            <div class="row">
+                                                <h2 class="brand-news">Tổng hợp</h2> 
+                                            
+                                                <a href="/news/category/1">Xem tất cả</a>
+                                            </div>
+                                            <div class="row article">
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                                                    <img src="<%=five_lasted_news_sport[0].img%>" alt="<%=five_lasted_news_sport[0].title%>" class="img-responsive">
+                                                    <h3 class="news-title"><a href="/news/<%=five_lasted_news_sport[0]._id%>"><%=five_lasted_news_sport[0].title%></a></h3>
+                                                    <p class="news-time"><%=five_lasted_news_sport[0].pubDate%></p>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <%  
+                                                    for(let i =1; i<five_lasted_news_sport.length; i++ ) { %>
+
+                                                    <div class="row item">
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <img src="<%=five_lasted_news_sport[i].img %>" alt="<%=five_lasted_news_sport[i].title%>" class="img-thumbnail">
+                                                        </div>
+
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                            <h4><a href="/news/<%=five_lasted_news_sport[i]._id%>"><%=five_lasted_news_sport[i].title %></a></h4>
+                                                            <p class="news-time"><%=five_lasted_news_sport[i].pubDate %></p>
+                                                        </div>
+                                                    </div>
+
+
+                                               <% } %>
+
+                                                   
+                                                </div>
+                                            </div>
+                                            <!-- end article-->
+                                        </div>
+                                        
+                                        <!-- end tin tuc bong da -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
+                        <hr>
+
+                        <div id="section2"> 
+                            <div class="news-part">
+                                <div class="container">
+                                    <div class="row">
+                                        <!-- start tin tuc bong da -->
+                                        <div class="article-hot-news">
+                                            <div class="row">
+                                                <h2 class="brand-news">Bóng đá</h2> 
+                                            
+                                                <a href="/news/category/2">Xem tất cả</a>
+                                            </div>
+                                            <div class="row article">
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                                                    <img src="<%=five_lasted_news_soccer[0].img%>" alt="<%=five_lasted_news_soccer[0].title%>" class="img-responsive">
+                                                    <h3 class="news-title"><a href="/news/<%=five_lasted_news_soccer[0]._id%>"><%=five_lasted_news_soccer[0].title%></a></h3>
+                                                    <p class="news-time"><%=five_lasted_news_soccer[0].pubDate%></p>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <%  
+                                                    for(let i =1; i<five_lasted_news_soccer.length; i++ ) { %>
+
+                                                    <div class="row item">
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <img src="<%=five_lasted_news_soccer[i].img %>" alt="<%=five_lasted_news_soccer[i].title%>" class="img-thumbnail">
+                                                        </div>
+
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                            <h4><a href="/news/<%=five_lasted_news_soccer[i]._id%>"><%=five_lasted_news_soccer[i].title %></a></h4>
+                                                            <p class="news-time"><%=five_lasted_news_soccer[i].pubDate %></p>
+                                                        </div>
+                                                    </div>
+
+
+                                               <% } %>
+
+                                                   
+                                                </div>
+                                            </div>
+                                            <!-- end article-->
+                                        </div>
+                                        
+                                        <!-- end tin tuc bong da -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <hr>
+
+                        <div id="section3"> 
+                            <div class="news-part">
+                                <div class="container">
+                                    <div class="row">
+                                        <!-- start tin tuc bong da -->
+                                        <div class="article-hot-news">
+                                            <div class="row">
+                                                <h2 class="brand-news">Hậu trường thể thao</h2> 
+                                            
+                                                <a href="/news/category/3">Xem tất cả</a>
+                                            </div>
+                                            <div class="row article">
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                                                    <img src="<%=five_lasted_news_behind[0].img%>" alt="<%=five_lasted_news_behind[0].title%>" class="img-responsive">
+                                                    <h3 class="news-title"><a href="/news/<%=five_lasted_news_behind[0]._id%>"><%=five_lasted_news_behind[0].title%></a></h3>
+                                                    <p class="news-time"><%=five_lasted_news_behind[0].pubDate%></p>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <%  
+                                                    for(let i =1; i<five_lasted_news_behind.length; i++ ) { %>
+
+                                                    <div class="row item">
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <img src="<%=five_lasted_news_behind[i].img %>" alt="<%=five_lasted_news_behind[i].img%>" class="img-thumbnail">
+                                                        </div>
+
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                            <h4><a href="/news/<%=five_lasted_news_behind[i]._id%>"><%=five_lasted_news_behind[i].title %></a></h4>
+                                                            <p class="news-time"><%=five_lasted_news_behind[i].pubDate %></p>
+                                                        </div>
+                                                    </div>
+
+
+                                               <% } %>
+
+                                                   
+                                                </div>
+                                            </div>
+                                            <!-- end article-->
+                                        </div>
+                                        
+                                        <!-- end tin tuc bong da -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <hr>
+
+                        <div id="section4" class=""> 
+                            <div class="news-part">
+                                <div class="container">
+                                    <div class="row">
+                                        <!-- start tin tuc bong da -->
+                                        <div class="article-hot-news">
+                                            <div class="row">
+                                                <h2 class="brand-news">Golf</h2> 
+                                            
+                                                <a href="/news/category/4">Xem tất cả</a>
+                                            </div>
+                                            <div class="row article">
+
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                                                    <img src="<%=five_lasted_news_golf[0].img%>" alt="<%=five_lasted_news_golf[0].title %>" class="img-responsive">
+                                                    <h3 class="news-title"><a href="/news/<%=five_lasted_news_golf[0]._id%>"><%=five_lasted_news_golf[0].title%></a></h3>
+                                                    <p class="news-time"><%=five_lasted_news_golf[0].pubDate%></p>
+                                                </div>
+                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <%  
+                                                    for(let i =1; i<five_lasted_news_golf.length; i++ ) { %>
+
+                                                    <div class="row item">
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <img src="<%=five_lasted_news_golf[i].img %>" alt="<%=five_lasted_news_golf[i].title %>" class="img-thumbnail">
+                                                        </div>
+
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                            <h4><a href="/news/<%=five_lasted_news_golf[i]._id%>"><%=five_lasted_news_golf[i].title %></a></h4>
+                                                            <p class="news-time"><%=five_lasted_news_golf[i].pubDate %></p>
+                                                        </div>
+                                                    </div>
+
+
+                                               <% } %>
+
+                                                   
+                                                </div>
+                                            </div>
+                                            <!-- end article-->
+                                        </div>
+                                        
+                                        <!-- end tin tuc bong da -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+          
+        </section>
+
+        
+    </div>
+    
+    <!-- end body of page -->
+
+    <!-- footer of page -->
+    <%- include('./parts/footer.ejs')%>
+    <!-- end footer of page -->
+
+</body>
+
+</html>

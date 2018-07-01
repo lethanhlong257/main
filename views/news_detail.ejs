@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tin tức</title>
+    <%- include('./parts/head.ejs')%>
+    
+</head>
+
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    
+
+    <!-- body of page -->
+    
+
+    
+    <div class="container">
+        <section class = "news">
+            <h1><%=news.title%></h1>
+            <hr>
+            <p><span class="font-italic small" ><%=news.pubDate%></span></p>            
+            <h2> <small> <%=news.desc%></small> </h2>
+            <img src="<%=news.img%>" alt="<%=news.title%>">
+
+            <span class="content">
+               <%- news.content %>
+            </span>
+            <div class="source tex">
+                <strong>Nguồn: </strong> <span>tienphong.vn</span>
+            </div>
+        </section>
+
+        <section class="hint">
+            <h2>Tin tức liên quan</h2>
+            <% ten_last_news.forEach(news=>{ %>
+                
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img class="img-news-small" src="<%=news.img%>" alt="<%=news.title%>">
+                    </div>
+                    <div class="col-sm-9">
+                        <a href="<%=news.link%>"><h3><%=news.title%></h3></a>
+                        <br>
+                        <p><%=news.desc%></p>
+                    </div>
+                </div>
+                <hr>
+            <% }) %>
+
+            
+        </section>
+        
+    </div>
+    
+    <!-- end body of page -->
+
+    <!-- footer of page -->
+    <%- include('./parts/footer.ejs')%>
+    <!-- end footer of page -->
+
+</body>
+
+</html>

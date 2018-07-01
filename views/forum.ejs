@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <%- include('./parts/head.ejs')%>
+    
+</head>
+
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    
+
+    <!-- body of page -->
+
+    <div class="container-fluid">
+
+        <div class="card bg-success text-white">
+            <div class="card-body"> <h5>DIỄN ĐÀN CHIA SẼ THÔNG TIN, TIN THỨC THỂ THAO</h3> </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <section class="left-content">
+                    <h5 class="small-title">Danh sách thành viên</h5>
+                    <input id="search-member" type="text" class="form-control" name="search-member" placeholder="Tìm kiếm thành viên">
+
+                    <div class="list-group member-list">                    
+                    </div>
+                </section>
+            </div>
+            
+            <div class="col-sm-9 right-content">  
+                <section>
+                    <h5 class="small-title">Bài viết mới nhất</h5>
+                    <%
+                        var message = message
+                        if(message){ %>
+                        <span class="err"><%=message %></span>    
+                    <% } %>
+                    <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#new-topic">Tạo bài viết</button>
+                    <div id="new-topic" class="collapse new-topic">
+                        <form action="/forum" id="form-post-forum" method="post">
+                            <% /*row title */ %>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                    <label for="topic-title">Tiêu đề bài viết:</label>
+                                    <input type="text" name="title" class="form-control" id="topic-title">
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label for="sel1">Danh mục bài viết</label>
+                                    <select name="category" class="form-control" id="sel1">
+                                        <option value="1">Khác</option>
+                                        <option value="2">Bóng đá</option>
+                                        <option value="3">Tennis</option>
+                                        <option value="4">Bóng chuyền</option>
+                                        <option value="5">Bóng rổ</option>
+                                        <option value="6">Cầu lông</option>
+                                      
+                                    </select>
+                                </div>
+                            </div>
+                            <% /* end row title */ %>
+                            
+                            <div class="form-group">
+                                <label for="content-topic">Nội dung:</label>
+                                <div id="toolbar-container"></div>
+                                <textarea name = "content" class="form-control content-topic" rows="5" name="editor1" id="topic-content" rows="10" cols="80">
+                                    
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace( 'topic-content' );
+                                </script>
+                            </div>
+                            
+                            <input  type="hidden" name="author" value="<%=user.username%>">
+                            <span class="err"></span>
+                            <button type="submit" class="btn btn-danger" id="btn-submit-post-forum">Submit</button>
+                        </form>
+                        
+                    </div>
+
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Tiêu đề</th>
+                            <th>Chủ đề</th>
+                            <th>Trả lời</th>
+                            <th>Lượt xem</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            posts.forEach(post=>{
+                                    let category
+                                    switch(post.category){
+                                case 1:
+                                    category = "Khác"
+                                    break
+                                case 2:
+                                    category = "Bóng đá"
+                                    break
+                                case 3:
+                                    category = "Tennis"
+                                    break
+                                case 4:
+                                    category = "Bóng chuyền"
+                                    break
+                                case 5:
+                                    category = "Bóng rổ"
+                                    break
+                                case 6:
+                                    category = "Cầu lông"
+                                    break
+                                default:
+                                    category = "Khác"
+                                    break
+                                }
+                                %>
+                        <tr>
+                            <td><a href="/forum/post/<%=post._id %>" class="card-link"><%=post.title %></a>  </td>
+                            <td><%=category %></td>
+                            <td><%=post.anwser %></td>
+                            <td><%=post.views %></td>
+                        </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h5 class="small-title">Chủ đề</h5>
+                    <div class="list-group">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Chủ đề</th>
+                                <th>bài viết</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="/forum/category/1" class="card-link">Tổng hợp</a></td>
+                                <td>10 bài viết</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/forum/category/2" class="card-link">Bóng đá</a></td>
+                                <td>10 bài viết</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/forum/category/3" class="card-link">Tenis</a></td>
+                                <td>10 bài viết</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/forum/category/4" class="card-link">Bóng chuyền</a></td>
+                                <td>10 bài viết</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/forum/category/5" class="card-link">Bóng rổ</a></td>
+                                <td>10 bài viết</td>
+                            </tr>
+                            <tr>
+                                <td><a href="/forum/category/6" class="card-link">Cầu lông</a></td>
+                                <td>10 bài viết</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+    </div>
+        
+    <!-- end body of page -->
+
+    <!-- footer of page -->
+    <%- include('./parts/footer.ejs')%>
+    <!-- end footer of page -->
+
+
+</body>
+
+</html>

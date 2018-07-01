@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <%- include('./parts/head.ejs')%>
+
+    
+</head>
+
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    
+
+    <!-- body of page -->
+    <% 
+        var message = message
+        var post = post
+        if(message){
+            %> <span class="err"><%=message%></span>  <%
+        }
+
+        if(post){ %>
+        
+            <div class="container-fluid">
+                <div class="card bg-success text-white">
+                    <div class="card-body"> <h5>DIỄN ĐÀN CHIA SẼ THÔNG TIN, TIN THỨC THỂ THAO</h5> </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <section class="left-content">
+                            <h5 class="small-title">Danh sách thành viên</h5>
+                            <input id="search-member" type="text" class="form-control" name="search-member" placeholder="Tìm kiếm thành viên">
+
+                            <div class="list-group member-list">                    
+                            </div>
+                        </section>
+                    </div>
+
+                    <%
+                        let time = new Date(post.date)
+                        let date = time.getDate()
+                        let month = time.getMonth()
+                        let year = time.getYear()
+                        let category
+                        
+                        switch(post.category){
+                            case 1:
+                                category = "Khác"
+                                break
+                            case 2:
+                                category = "Bóng đá"
+                                break
+                            case 3:
+                                category = "Tennis"
+                                break
+                            case 4:
+                                category = "Bóng chuyền"
+                                break
+                            case 5:
+                                category = "Bóng rổ"
+                                break
+                            case 5:
+                                category = "Cầu lông"
+                                break
+                            default:
+                                category = "Khác"
+                                break
+                        }
+                    %>
+                    
+                    <div class="col-sm-9 right-content">  
+                        <section>
+                            <h2 class="title"><%=post.title %></h2>
+                            <p class="news-time"><%=date %>/<%=month %>/<%=year %></p>
+                            <span class="badge badge-success"><%=category%></span>
+                            <hr>
+                            <span class="content">
+                                <%- post.content %>
+                            </span>
+                        </section>
+
+                        <section class="comment">
+                            <div class="form-group">
+                                <form action="/forum/submit/comment" method="post" id="fm-send-comment">
+                                    
+                                    <label for="comment">Comment:</label>
+                                    <textarea class="form-control" name="content" rows="5" id="comment"></textarea>
+                                    <input type="hidden" name="user" value="<%=user.username%>">
+                                    <input type="hidden" id="post-id" name="postID" value="<%=post._id %>">
+                                    <br>
+                                    <button id="btn-send-comment" type="submit" class="btn btn-primary">Gửi Bình Luận</button>
+                                    <span class="err"></span>
+                                </form>
+                            </div>
+                        </section>
+
+                        <section>
+
+                        <% comments.forEach( comment => { %>
+                            <article>
+                                <h5><%=comment.user%></h5>
+                                <p><%=comment.content%></p>
+                                <input type="hidden" id="comment-id" value="<%=comment._id%>">
+                                <hr>
+                                <button type="button" data-toggle="modal" data-target="#<%=comment._id%>-update" class="btn btn-outline-success btn-sm">Chỉnh sửa</button>
+                                <button type="button" data-toggle="modal" data-target="#<%=comment._id%>" class="btn btn-outline-danger btn-sm">Xóa</button>
+                            </article>
+
+                            <!-- The Modal remove comment -->
+                            <div class="modal" id="<%=comment._id%>">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Comment sẽ được xóa. Bạn chắc chứ</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button value="<%=comment._id%>" type="button" class="btn btn-danger btn-agree-remove-commnet" data-dismiss="modal">Đồng ý</button>
+                                        <button type="button" class="btn btn-outline-success" data-dismiss="modal">Hủy bỏ</button>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end The Modal remove comment -->
+
+
+                            <!-- The Modal update comment -->
+                            <div class="modal" id="<%=comment._id%>-update">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                    
+                                        <h4 class="modal-title">Chỉnh sửa nội dung comment của bạn</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <span class="err"></span>
+                                        <div class="form-group">
+                                            <label for="comment">Comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment-update"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button value="<%=comment._id%>" type="button" class="btn btn-success btn-agree-update-commnet" data-dismiss="modal">Đồng ý</button>
+                                        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Hủy bỏ</button>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end The Modal update comment -->
+                        <% }) %>
+                        
+
+                        </section>
+
+                        
+
+                        
+
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+
+            </div>
+
+       <% } %>
+
+    
+        
+    <!-- end body of page -->
+
+    <!-- footer of page -->
+    <%- include('./parts/footer.ejs')%>
+    <!-- end footer of page -->
+
+
+</body>
+
+</html>

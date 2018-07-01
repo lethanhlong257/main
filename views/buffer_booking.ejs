@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <%- include('./parts/head.ejs')%>
+    
+</head>
+
+<body>
+    <div class = "buffer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="alert alert-success">
+                   
+                    <strong>Sân của bạn được đặt thành công!</strong>
+                </div>
+            </div>
+
+            <p>Bạn sẽ được chuyển hướng sang trang chủ trong</p>
+
+            <div class="row">
+                <h1 class="display-1 text-center count">5</h1>
+            </div>
+
+            <div class="row">
+                <button id="btn-redirect-bill-booking" type="button" class="btn btn-success">Chuyển hướng thông tin sân được đặt</button>
+                <button id="btn-redirect-home" type="button" class="btn btn-outline-success">Chuyển hướng ngay sang trang chủ</button>
+            </div>
+        </div>
+  
+    </div>
+    
+    <script>
+        var doUpdate = function() {
+            $('.count').each(function() {
+                var count = parseInt($(this).html());
+                if (count !== 0) {
+                    $(this).html(count - 1);
+                }
+                if(count === 0){
+                    window.location.replace("/user/history/booking");
+                }
+            });
+        };
+        // Schedule the update to happen once every second
+        setInterval(doUpdate, 1000);
+
+        $("#btn-redirect-home").click(function() {
+            $(location).attr('href', '/')
+        })
+
+        $("#btn-redirect-bill-booking").click(function() {
+            $(location).attr('href', '/user/history/booking')
+        })
+        
+    </script>
+   
+
+
+</body>
+
+</html>

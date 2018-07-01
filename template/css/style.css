@@ -1,0 +1,104 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img.img-responsive.field{
+    height: 500px;
+}
+
+
+
+ul.nav.navbar-nav li a {
+    color: black;
+    font-size: 18px;
+}
+
+ul.nav.navbar-nav li a:hover {
+    background: black;
+    color:white;
+    border-bottom: solid 1px green;
+    transition: all 0.3s;
+    
+
+}
+
+
+.bottom-footer {
+    background: #283139;
+    color: #97A5B3;
+    padding: 1px;
+    margin: 0px;
+}
+
+.top-footer {
+    padding: 40px;
+    background: #2F3942;
+    color: white;
+}
+
+
+.brand-ranking {
+    background: green;
+    padding: 5px;
+    color: white;
+}
+
+.brand-news {
+    background: green;
+    padding: 5px;
+    color: white;
+}
+
+.view-all-news {
+    margin-top: 27px;
+}
+
+.category-item {
+    margin-top: 20px;
+}
+
+view-all-news {
+    margin-top: 10px;
+}
+
+.logo {
+    background: green;
+    margin: 0px;
+    color: white;
+    padding: 26px;
+    font-size: 36px;
+}
+
+nav.navbar.navbar-default {
+    color: #ffffff45;
+    border: none;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+header {
+    background: black;
+    color: white;
+    padding: 16px;
+}
+
+header ul {
+    list-style: none;
+    display: inline;
+
+}
+
+header ul li {
+    display: inline;
+    margin: 10px;
+}
+.menu{
+    padding: 0px;
+}
+
+h1 h2{
+    color: green;
+}
+

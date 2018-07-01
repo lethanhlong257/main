@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <%- include('./parts/head.ejs')%>
+</head>
+<body>
+    <!-- start menu -->
+        <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+
+    <div class="body-login">
+        <%
+            var success = success;
+            var username = username;
+            var email = email;
+            var name = name;
+            var message = message;
+           
+            if(success){
+                %>
+                    <fieldset class="content-login">
+                        <h2>ĐĂNG KÍ</h2>
+                        <hr>
+                        <form class="form-horizontal" >
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <p><%=email%></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Tên Đăng Nhập:</label>
+                                <p><%=username%></p>
+                            
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <p>**********</p>
+                            
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Họ và tên:</label>
+                                <p><%=name%></p>
+                                            
+                            </div>
+                            
+                            <div class="form-group">
+                                <a href='/' class="btn btn-success btn-login">Đăng kí thành công</a>
+                            </div>
+                        </form>
+                    </fieldset>
+                <%
+            } else {
+                %>
+                    <fieldset class="content-login">
+                        <h2>ĐĂNG KÍ</h2>
+                        <hr>
+                         <%
+                            if(message){
+                                %><span class="message"> <%=message %>! </span><%
+                            }
+                        %>   
+                        
+                        <form class="form-horizontal register" action='/register' method="post" >
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Email"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Tên Đăng Nhập:</label>
+                                <input type="text" name="username" class="form-control" id="username3" placeholder="Tên Đăng nhập">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" name="password" class="form-control" id="password3" placeholder="Mật khẩu">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Họ và tên:</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Họ và tên">                   
+                                </div>
+                            <div class="form-group">
+                                <span class="err" id="register_err"></span>   
+                                <label><a href="/login">Đã có tài khoản</a></label>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-success btn-login" value="Đăng kí" />
+                            </div>
+                        </form>
+                    </fieldset>
+                <%
+            }
+        %>
+    </div>
+
+
+
+
+  
+    <%-include('./parts/footer.ejs')%>
+
+    
+
+
+    
+</body>
+</html>

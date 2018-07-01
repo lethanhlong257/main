@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendor/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome.css">
+    <script src="vendor/bootstrap.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+
+    <!-- start menu -->
+    <div class="head">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 logo">
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                    Sport Ranking
+                </div>
+
+                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 menu">
+                    <header class="text-center">
+                        <ul>
+                            <li>Email: lethanhlong257@gmail.com</li>
+                            <li>Phone: 01235123388</li>
+                            <li>
+                                <i class="fa fa-facebook-official"></i>
+                                <i class="fa fa-youtube-play"></i>
+                                <i class="fa fa-google-plus-official"></i>
+                            </li>
+                        </ul>
+                    </header>
+                    <nav class="navbar navbar-default" role="navigation">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="#" class="active">Trang chủ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Tin tức thể thao</a>
+                                </li>
+                                <li>
+                                    <a href="#">Diễn đàn</a>
+                                </li>
+                                <li>
+                                    <a href="#">Đặt sân</a>
+                                </li>
+                                <li>
+                                    <a href="#">Live</a>
+                                </li>
+                                <li>
+                                    <a href="#">Event</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" data-toggle="modal" data-target="#login-modal">Đăng nhập/Đăng kí</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- end menu -->
+
+    <!-- start carousel -->
+
+
+    <div id="carousel-id" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item">
+                <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide" src="images/main_banner.jpg">
+
+            </div>
+            <div class="item">
+                <img data-src="holder.js/900x500/auto/#666:#6a6a6a/text:Second slide" alt="Second slide" src="images/main_banner1.jpg">
+
+            </div>
+            <div class="item active">
+                <img data-src="holder.js/900x500/auto/#555:#5a5a5a/text:Third slide" alt="Third slide" src="images/main_banner.jpg">
+                <!-- <div class="container">
+                        <div class="carousel-caption">
+                            <h1>One more for good measure.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
+                    </div> -->
+            </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-id" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-id" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+    <!-- end-carousel -->
+
+
+    <div class="news-part odd">
+        <div class="container">
+            <div class="row">
+                <!-- start tin tuc bong da -->
+                <div class="col-md-9 article-hot-news">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h2 class="brand-news">Tin tức bóng đá</h2>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 category-item">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Bóng đá khu vực
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Bóng đá ngoại hạng anh</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Tây Ban nha</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Đức</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 view-all-news">
+                            <a href="#">Xem tất cả</a>
+                        </div>
+                    </div>
+
+                    <div class="row article">
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                            <img src="images/item.jpg" alt="hinh anh" class="img-responsive">
+                            <h3 class="news-title">Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h3>
+                            <p class="news-time">1/12/2017</p>
+                        </div>
+
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end tin tuc bong da -->
+
+                <!-- start bang xep hang -->
+                <div class="col-md-3 article-ranking">
+                    <h2 class="brand-ranking">Bảng xếp hạng</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vị trí</th>
+                                <th>Tên đội</th>
+                                <th>Điểm số</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>BAR</td>
+                                <td>69</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>REAL</td>
+                                <td>65</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ALT</td>
+                                <td>60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="news-part even">
+        <div class="container">
+            <div class="row">
+                <!-- start tin tuc bong da -->
+                <div class="col-md-9 article-hot-news">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h2 class="brand-news">Tin tức bóng đá</h2>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 category-item">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Bóng đá khu vực
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Bóng đá ngoại hạng anh</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Tây Ban nha</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Đức</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 view-all-news">
+                            <a href="#">Xem tất cả</a>
+                        </div>
+                    </div>
+
+                    <div class="row article">
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                            <img src="images/item.jpg" alt="hinh anh" class="img-responsive">
+                            <h3 class="news-title">Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h3>
+                            <p class="news-time">1/12/2017</p>
+                        </div>
+
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end tin tuc bong da -->
+
+                <!-- start bang xep hang -->
+                <div class="col-md-3 article-ranking">
+                    <h2 class="brand-ranking">Bảng xếp hạng</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vị trí</th>
+                                <th>Tên đội</th>
+                                <th>Điểm số</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>BAR</td>
+                                <td>69</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>REAL</td>
+                                <td>65</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ALT</td>
+                                <td>60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="news-part odd">
+        <div class="container">
+            <div class="row">
+                <!-- start tin tuc bong da -->
+                <div class="col-md-9 article-hot-news">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h2 class="brand-news">Tin tức bóng đá</h2>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 category-item">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Bóng đá khu vực
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Bóng đá ngoại hạng anh</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Tây Ban nha</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Đức</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 view-all-news">
+                            <a href="#">Xem tất cả</a>
+                        </div>
+                    </div>
+
+                    <div class="row article">
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                            <img src="images/item.jpg" alt="hinh anh" class="img-responsive">
+                            <h3 class="news-title">Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h3>
+                            <p class="news-time">1/12/2017</p>
+                        </div>
+
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end tin tuc bong da -->
+
+                <!-- start bang xep hang -->
+                <div class="col-md-3 article-ranking">
+                    <h2 class="brand-ranking">Bảng xếp hạng</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vị trí</th>
+                                <th>Tên đội</th>
+                                <th>Điểm số</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>BAR</td>
+                                <td>69</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>REAL</td>
+                                <td>65</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ALT</td>
+                                <td>60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="news-part event">
+        <div class="container">
+            <div class="row">
+                <!-- start tin tuc bong da -->
+                <div class="col-md-9 article-hot-news">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <h2 class="brand-news">Tin tức bóng đá</h2>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 category-item">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Bóng đá khu vực
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Bóng đá ngoại hạng anh</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Tây Ban nha</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Bóng đá Đức</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 view-all-news">
+                            <a href="#">Xem tất cả</a>
+                        </div>
+                    </div>
+
+                    <div class="row article">
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot-item">
+                            <img src="images/item.jpg" alt="hinh anh" class="img-responsive">
+                            <h3 class="news-title">Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h3>
+                            <p class="news-time">1/12/2017</p>
+                        </div>
+
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+                            <div class="row item">
+                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="images/item.jpg" alt="hinh anh" class="img-thumbnail">
+                                </div>
+
+                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                    <h4>Chuyển nhượng MU: Mourinho ép giá Real, Bale 53 triệu bảng</h4>
+                                    <p class="news-time">1/12/2017</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end tin tuc bong da -->
+
+                <!-- start bang xep hang -->
+                <div class="col-md-3 article-ranking">
+                    <h2 class="brand-ranking">Bảng xếp hạng</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Vị trí</th>
+                                <th>Tên đội</th>
+                                <th>Điểm số</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>BAR</td>
+                                <td>69</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>REAL</td>
+                                <td>65</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ALT</td>
+                                <td>60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+
+
+    <!-- Modal login-->
+    <div id="login-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Đăng nhập / Đăng kí</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="email">Email:</label>
+                          <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-sm-2" for="pwd">Password:</label>
+                          <div class="col-sm-10"> 
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+                          </div>
+                        </div>
+                        <div class="form-group"> 
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                              <label><input type="checkbox"> Remember me</label><br>
+                              <label><a href="#">Quên mật khẩu</a></label><br>
+                              <label><a href="#">Chưa có tài khoản?</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group"> 
+                          <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- modal -->
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="top-footer">
+                <div class="row">
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 logo">
+                        <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                        Sport Ranking
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <h3>CONTACT INFO</h3>
+                        <p>10221 Magnolia Grove Dr, Manassas, VA, 20110</p>
+                        <p>Office :- +1-512-555-0190 Office :- +1-512-555-0190</p>
+                        <p>help@yourmail.com</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <h3>CONTACT INFO</h3>
+                        <p>10221 Magnolia Grove Dr, Manassas, VA, 20110</p>
+                        <p>Office :- +1-512-555-0190 Office :- +1-512-555-0190</p>
+                        <p>help@yourmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-footer text-center">
+                <h4>Copyright © 2017, Sport G+. All Rights Reserved.</h4>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sach cac san</title>
+    <%- include('./parts/head.ejs')%>
+
+    <script>
+        
+        $(document).ready(function(){
+            var socket = io.connect('http://localhost:3000');
+            
+            // filter search
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("article").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            // socketIO to choose location
+            // when city selection change this code will perform
+            $(".select-location").change(function () {
+                var city = ""; 
+                $( "#select-location option:selected" ).each(function() {
+                    city += $( this ).text();
+                    if(city==="Chọn TP/Tỉnh"){
+
+                    } else {
+                        socket.emit('user-select-city', { city });
+                        $("article").filter(function() {
+                            var value = city.toLowerCase();
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+              
+                        });
+                    }
+                });
+                
+            })
+            socket.on('server send district base on city', district => {
+                $("#district").removeAttr("disabled");        
+                $("#district").empty();
+                $("#district").append("<option value =''>Chọn Quận/Huyện</option>")     
+                district.forEach( district => {
+                    
+                    $("#district").append("<option value ="+ district.districtName +">"+district.districtName+"</option>")
+                })
+               
+             
+            })
+
+            // when district selected this code will perform
+            $("#district").change(function () {
+                var city = "";
+                var district = "";
+                $( "#select-location option:selected" ).each(function() {
+                    city += $( this ).text();
+                });  
+                $( "#district option:selected" ).each(function() {
+                    district += $( this ).text();
+                });
+                socket.emit("user select district and want to choose playfield", {city, district})
+                $("article").filter(function() {
+                    var value = district.toLowerCase();
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+                });
+            })
+            
+            socket.on("server send playfield base on city and district", function(playfield){
+                $("#playfield").removeAttr("disabled");
+                $("#playfield").empty();
+                $("#playfield").append("<option value =''>Chọn nhà sân</option>")                           
+                playfield.forEach(function(data){
+                    var fieldName = data.fieldName;
+                    var fieldID = data.fieldID
+                    $("#playfield").append("<option value ="+ fieldID +">"+fieldName+"</option>")
+                })
+
+                $("#playfield").change(function () {
+                    var field = "";
+                    $( "#select-location option:selected" ).each(function() {
+                        field += $( this ).text();
+                    });  
+                    $("article").filter(function() {
+                        var value = field.toLowerCase();
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+
+                })
+            })
+
+            // choose the field change
+            $("#playfield").change(function () {
+                var ownerID = "";
+                $( "#playfield option:selected" ).each(function() {
+                    ownerID += $( this ).val();
+                });  
+                
+                socket.emit("request sub playfield", ownerID)
+
+            })
+
+            socket.on("response sub playfield", sub_fields =>{
+                
+                //$("#sub-field-select").removeAttr("disabled");
+                $("#sub-field-select").empty();
+                $("#sub-field-select").append("<option value =''>Chọn sân nhỏ</option>")      
+                console.log(sub_fields)                     
+                JSON.parse(sub_fields).forEach(function(data){
+                    let fieldName = data.nameOfYard+"";
+                    let fieldID = data.ID+"";
+                    let price = data.price+"";
+                    
+                    $("#sub-field-select").append("<option value ="+ fieldID +">"+fieldName+ " - " +price+"</option>")
+                })
+            })
+
+
+            // validation booking form
+            $("#booking-field").submit(function(){
+                if($("#playfield").val() === ""){
+                    alert("Chưa chọn sân")
+                    return false
+                }
+                if($("#date-select").val()===""){
+                    alert("Chưa chọn Ngày")
+                    return false
+                }
+                if($("#ub-field-select").val()===""){
+                    alert("Chưa chọn sân nhỏ")
+                    return false
+                }
+
+            })
+
+
+
+            
+         
+        });
+    </script>
+</head>
+
+<body>
+
+    
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+
+
+   
+
+    <!-- Search -->
+    <div class="container">
+        <section>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input id="search" type="text" class="form-control" name="search" placeholder="Tìm kiếm sân ở đây ...">
+            </div>
+        </section>
+    </div>
+
+
+     <!-- Menu booking -->
+    <div class="container">
+        <section>
+            <form id="booking-field" method="get" action="/booking2">
+                <div class="row">
+                    <div class="col-sm-3 booking-option">
+                        <span>Chọn tỉnh/Thành Phố</span>
+                        <select class="select-location" id="select-location">
+                            <option value="">Chọn TP/Tỉnh</option>
+                            <%
+                                
+                                location.forEach( city => {
+                                    %>
+                                        <option value="<%=city.cityName %>"><%=city.cityName %></option>
+                                    <%
+                                })
+                            %>
+
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3 booking-option">
+                        <span>Chọn Quận/Huyện</span>
+                        <select disabled id="district">
+                            <option value="">Quận/Huyện</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3 booking-option">
+                        <span>Chọn Sân</span>
+                        <select disabled id="playfield" name="fieldID">
+                            <option value="">Tên Sân bãi</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-3 booking-option">
+                        <span>Chọn sân nhỏ</span>
+                        <select class="" id="sub-field-select" name="subFieldID">
+                            <option value="">Chọn sân nhỏ</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 booking-option">
+                        <button type="submit"  class="btn btn-danger btn-booking">Đặt sân</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div class="container">
+
+    <%
+        datas.forEach( data => {
+            %>
+                <article>     
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                            <img src="images/san1.png" width="200px" alt="hinh anh 1" class="img-responsive">
+                        </div>
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            <br>
+                            <h2><%= data.nameOffield %></h2>
+                            <p class="news-time">
+                                <strong>Địa chỉ: </strong> 
+                                <%=data.address.street %>, Phường/Xã <%=data.address.ward %>, Quận/Huyện <%=data.address.district %>, TP/Tỉnh <%=data.address.city %>
+                            </p>
+                            <p class="news-time"><strong>Tên chủ sân: </strong> <%= data.nameOwner %></p> 
+                        
+                            <p><strong>Mô Tả Sân: </strong> <%=data.description %></p>
+                            <button type="button"  class="btn btn-danger">Đặt sân</button>
+                            <button type="button" value="<%= data.email %>"  class="btn btn-outline-success btn-connect-chat">Nhắn với chủ sân</button>
+                        </div>
+                    </div>
+                 
+                </article>
+            <%
+        })
+    %>
+
+
+     </div>
+
+   
+    <%- include('./parts/footer.ejs')%>
+ 
+
+</body>
+
+</html>

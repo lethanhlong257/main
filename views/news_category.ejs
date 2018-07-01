@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tin tức</title>
+    <%- include('./parts/head.ejs')%>
+    
+</head>
+
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    
+
+    <!-- body of page -->
+
+    <div class="container">
+
+        <section class= "menu-news">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                <a class="nav-link" href="/news/category/1">Thể thao tổng hợp</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/news/category/2">Bóng đá</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/news/category/3">Hậu trường thể thao</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/news/category/4">Golf</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                <input id="search" type="text" class="form-control" name="search" placeholder="Tìm kiếm ...">
+            </div>
+        </section>
+
+        <section class="hint">
+            <h2>Tin tức liên quan</h2>
+            <% news.forEach(news=>{ %>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img class="img-news-small" src="<%=news.img%>" alt="<%=news.title%>">
+                    </div>
+                    <div class="col-sm-9">
+                        <a href="<%=news.link%>"><h3><%=news.title%></h3></a>
+                        <br>
+                        <p><%=news.desc%></p>
+                    </div>
+                </div>
+                <hr>
+            <% }) %>
+        </section>
+    </div>
+    
+    <!-- end body of page -->
+
+    <!-- footer of page -->
+    <%- include('./parts/footer.ejs')%>
+    <!-- end footer of page -->
+
+</body>
+
+</html>

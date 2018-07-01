@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <%- include('./parts/head.ejs')%>
+</head>
+
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    <div class="body-login">
+        <fieldset class="content-login">
+            <h2>ĐĂNG NHẬP</h2>
+            <hr>
+    
+                <%
+                    var message = message;
+                    if(message){
+                        %><span class="message"> <%=message %>! </span><%
+                    }
+                %>
+    
+            <form action="/login" method="post" class="login" id="login" >
+                <div class="form-group">
+                    <label for="email">Username:</label>
+                    <input type="text" name="username" class="form-control username" id="username" />
+                    <span class="err" id="username_err"></span>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input name="password" type="password" class="form-control password" id="password">
+                    <span class="err" id="password_err"></span>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox"> Remember me</label>
+                    <label><a href="/register">Tạo tài khoản mới</a></label>
+
+                </div>
+                <input type="submit" class="btn btn-default btn-login" value="Đăng nhập" />
+                </form>
+        </fieldset>
+    </div>
+    <!-- footer of page -->
+    <%- include('./parts/footer.ejs')%>
+    <!-- end footer of page -->
+
+</body>
+
+</html>

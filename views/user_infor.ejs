@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin User</title>
+    <%- include('./parts/head.ejs')%>
+</head>
+<body>
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="/images/img_avatar1.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Le Thanh Long</h5>
+                            <button type="button" class="btn btn-default">Chỉnh sửa</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <p><strong>Địa chỉ: </strong></p>
+                    <p><strong>Số điện thoại: </strong></p>
+                    <p><strong>Email: </strong></p>
+                    <p><strong>Mô tả ngắn </strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="card bg-success text-white">
+                <div class="card-body">Lịch sử đặt sân</div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4>Mã đặt sân: </h5>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Tên người nhận sân: </strong>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Địa chỉ: </strong>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Tên nhà sân: </strong>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Tên sân con: </strong>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Thời gian: </strong>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Thời lượng: </strong>
+                </div>
+                <div class="col-sm-3">
+                    <strong>Giá tiền: </strong>
+                </div>
+            </div>
+        </section>
+    </div>
+  
+    <%-include('./parts/footer.ejs')%>
+
+    
+
+
+    
+</body>
+</html>

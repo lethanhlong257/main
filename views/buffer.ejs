@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home page</title>
+    <%- include('./parts/head.ejs')%>
+    
+</head>
+
+<body>
+    <div class = "buffer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="alert alert-success">
+                    <% var message = message %>
+                    <strong>Success!</strong> <%=message %>
+                </div>
+            </div>
+
+            <p>Bạn sẽ được chuyển hướng trong</p>
+
+            <div class="row">
+                <h1 class="display-1 text-center count">5</h1>
+            </div>
+
+            <div class="row">
+                <button id="redirect" type="button" class="btn btn-outline-success">Chuyển hướng ngay</button>
+            </div>
+        </div>
+  
+    </div>
+    
+    <script>
+        var doUpdate = function() {
+            $('.count').each(function() {
+                var count = parseInt($(this).html());
+                if (count !== 0) {
+                    $(this).html(count - 1);
+                }
+                if(count === 0){
+                    window.location.replace("/forum");
+                }
+            });
+        };
+        // Schedule the update to happen once every second
+        setInterval(doUpdate, 1000);
+
+        $("#redirect").click(function(){
+            window.location.replace("/forum");
+        })
+        
+    </script>
+   
+
+
+</body>
+
+</html>
