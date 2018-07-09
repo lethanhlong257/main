@@ -135,7 +135,10 @@
 
             })
 
-
+            $(".btn-book").click(function(){
+                var ID = $(this).val()
+                window.location.replace("/booking/onwerid/"+ID);
+            })
 
             
          
@@ -217,8 +220,10 @@
     <div class="container">
 
     <%
+
         datas.forEach( data => {
             %>
+               
                 <article>     
                     <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -234,7 +239,7 @@
                             <p class="news-time"><strong>Tên chủ sân: </strong> <%= data.nameOwner %></p> 
                         
                             <p><strong>Mô Tả Sân: </strong> <%=data.description %></p>
-                            <button type="button"  class="btn btn-danger">Đặt sân</button>
+                            <button type="button" value="<%=data.ID %>"  class="btn btn-danger btn-book">Đặt sân</button>
                             <button type="button" value="<%= data.email %>"  class="btn btn-outline-success btn-connect-chat">Nhắn với chủ sân</button>
                         </div>
                     </div>

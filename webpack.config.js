@@ -1,6 +1,6 @@
 // cau hinh cho dong goi tap tin nguon va dich
 module.exports = {
-    entry: './helper/app.js',
+    entry: './views/admin/index.js',
     output: {
         filename: './public/bundle.js'
     },

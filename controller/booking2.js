@@ -5,8 +5,6 @@ const Err = require("../models/errors")
 exports.getFieldsBooking2 = (req, res) => {
     const fieldID = req.query.fieldID
     const subFieldID = req.query.subFieldID
-
-     
     request(Url.url2000+"/get/owner/"+fieldID, (err, response, playfield)=>{
         if (err) return res.json({error: Err.err_read_API})
         request(Url.url2000+"/get/playfield/id/"+subFieldID, (err_owner, response_owner, subField)=>{

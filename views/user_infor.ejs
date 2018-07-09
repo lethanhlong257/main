@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
-                    <p><strong>Địa chỉ: </strong></p>
-                    <p><strong>Số điện thoại: </strong></p>
-                    <p><strong>Email: </strong></p>
-                    <p><strong>Mô tả ngắn </strong></p>
+                    <p><strong>Địa chỉ:</strong>  <%=user.name%></p>
+                    <p><strong>Số điện thoại: </strong> <%=user.phone%></p>
+                    <p><strong>Email:</strong> <%=user.email%></p>
+                    <p><strong>Mô tả ngắn: </strong> <span class="text-secondary">Your are nothing to share</span> </p>
                 </div>
             </div>
         </section>
@@ -37,32 +37,35 @@
                 <div class="card-body">Lịch sử đặt sân</div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-3">
-                    <h4>Mã đặt sân: </h5>
+            <% history.forEach( booking => { %>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <h4>Mã đặt sân:</h4>  <%=booking.booking._id %>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Tên người nhận sân:</strong><%=user.name %>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Địa chỉ: </strong><%=booking.owner.address.street %>, <%=booking.owner.address.ward %>, <%=booking.owner.address.district %>, <%=booking.owner.address.city %>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Tên nhà sân: </strong><%=booking.owner.nameOffield %>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Thời gian: </strong> ngày <%=booking.booking.time.date %> tháng <%=booking.booking.time.month %> năm <%=booking.booking.time.year %> - <%=booking.booking.time.hour %> giờ <%=booking.booking.time.minute %>
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Thời lượng: </strong><%=booking.booking.duration %> phút
+                    </div>
+                    <div class="col-sm-3">
+                        <strong>Giá tiền: </strong><%=booking.booking.totalPrice %>
+                    </div>
                 </div>
-                <div class="col-sm-3">
-                    <strong>Tên người nhận sân: </strong>
-                </div>
-                <div class="col-sm-3">
-                    <strong>Địa chỉ: </strong>
-                </div>
-                <div class="col-sm-3">
-                    <strong>Tên nhà sân: </strong>
-                </div>
-                <div class="col-sm-3">
-                    <strong>Tên sân con: </strong>
-                </div>
-                <div class="col-sm-3">
-                    <strong>Thời gian: </strong>
-                </div>
-                <div class="col-sm-3">
-                    <strong>Thời lượng: </strong>
-                </div>
-                <div class="col-sm-3">
-                    <strong>Giá tiền: </strong>
-                </div>
-            </div>
+                <hr>
+                    
+            <% }) %>
+
+            
         </section>
     </div>
   

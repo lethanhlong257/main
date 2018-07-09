@@ -246,6 +246,7 @@ app.route("/loginAPI")
 app.get("/playfield", loginRequired, require("./controller/playfield"));
 //app.get("/booking/:id", require("./controller/booking"));
 app.post("/booking",loginRequired, urlencodedParser, require("./controller/booking"))
+app.get("/booking/onwerid/:id", loginRequired, require("./controller/getSubfieldByOwnerID"))
 
 app.route("/forum")
     .get(loginRequired, require("./controller/forum").getForum)
@@ -256,7 +257,7 @@ app.get("/forum/post/:id", loginRequired, require("./controller/forum").getForum
 
 app.get("/getUserList", require("./controller/user").getUserList)
 
-app.get("/buffer/booking/success", (req, res)=> res.render("buffer_booking"))
+app.get("/buffer/booking/success",isLogin ,(req, res)=> res.render("buffer_booking"))
 app.get("/postforum/1/1", (req, res) => res.render("post-forum"))
 
 app.post("/forum/submit/comment", loginRequired, urlencodedParser, require("./controller/forum").submitCommentForum)
@@ -283,6 +284,9 @@ app.route("/booking/success")
 
 app.route("/user/history/booking")
     .get(loginRequired, require("./controller/getHistoryBooking"))
+
+app.route("/admin")
+    .get(loginRequired, require("./controller/admin"))
 
 // custom 404 page
 app.use(function (req, res) {

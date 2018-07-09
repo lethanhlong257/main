@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Booking</title>
+
+    <%- include('./parts/head.ejs')%>
+
+    <script>
+        var timeOfDay = [
+            '0000', '0030', '0100', '0130', '0200', '0230', '0300', '0330',
+            '0400', '0430', '0500', '0530', '0600', '0630', '0700', '0730',
+            '0800', '0830', '0900', '0930', '1000', '1030', '1100', '1130',
+            '1200', '1230', '1300', '1330', '1400', '1430', '1500', '1530',
+            '1600', '1630', '1700', '1730', '1800', '1830', '1900', '1930',
+            '2000', '2030', '2100', '2130', '2200', '2230', '2300', '2330'
+        ]
+
+        $(document).ready(function(){
+            $(".btn-book2").click(function(){
+                const subFieldID = $(this).val()
+                const ownerID = $("#ownerID").val()
+                window.location.replace(`/booking2?fieldID=`+ownerID+`&subFieldID=`+subFieldID)
+            })
+        })
+    </script>
+    
+    
+</head>
+<body>
+
+    <!-- start menu -->
+    <%- include('./parts/header.ejs')%>
+    <!-- end menu -->
+    <input type="hidden" name="ownerID" value="<%=owner.ID%>" id="ownerID">
+    <input type="hidden" name="userID" value="<%=user.ID%>" id="userID">
+
+    <!-- start Top of the booking -->
+    <div class="container">
+        <div class="top-booking">
+            <div class="row">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 booking-slider">
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img class="img-fluid" src="/images/main_banner.jpg" alt="Los Angeles">
+                            </div>
+                            <div class="carousel-item">
+                            <img class="img-fluid" src="/images/main_banner1.jpg" alt="Chicago">
+                            </div>
+                            <div class="carousel-item ">
+                            <img class="img-fluid" src="/images/main_banner.jpg" alt="New York">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 booking-description">
+                    
+                    <h2>Tên sân: <span class="strong"><%=owner.nameOffield%></span></h2>
+                    <p><strong>Địa chỉ: </strong><span id="address_booking"><%=owner.address.street %>, <%=owner.address.ward %>, <%=owner.address.district %>, <%=owner.address.city %></span></p>
+                    <p><strong>Số điện thoại: </strong><span id="phone_booking"><%=owner.phone%></span></p>
+                    <p><strong>Email: </strong><%=owner.email%></p>
+                    <p><strong>Mô tả ngắn </strong></p>
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+       <section>
+            <div class="card bg-success text-white">
+                <div class="card-body"><h2>Danh sách các sân của chủ sân này</h2></div>
+            </div>
+
+        <%  subFields.forEach(subField => { %>
+                <article>
+                    <h2>Tên sân: <span class="strong"><%=subField.nameOfYard%></span></h2>
+                    <p><strong>Giá: </strong><span id="" class="price-separate"><%=subField.price %></span> VND</p>
+                    <p><strong>Loại sân: </strong><span id="" class=""><%=subField.typeOfField %></span> VND</p>
+                    <button type="button" class="btn btn-danger btn-book2" value="<%=subField.ID %>">Đặt sân</button>
+                    <hr>
+                </article>
+        <%   })    %>
+
+       </section>
+    </div>
+
+    
+
+    <%- include('./parts/footer.ejs')%>
+
+
+
+    
+
+</body>
+</html>
