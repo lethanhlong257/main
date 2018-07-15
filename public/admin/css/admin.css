@@ -1,0 +1,72 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.panel-footer {padding:  10px;border: solid 1px #337ab7;}
+
+.dashboard-icon-big {
+    font-size: 50px;
+    margin-left: 5px;
+    color:  white;
+    margin-left: 30px;
+}
+
+.dashboard-content-dashboard-wrap{
+    margin-bottom: 10px;
+}
+
+.huge {
+    font-size: 42px;
+}
+
+.panel-heading {
+    background: #337ab7;
+    padding-top: 5px;
+    padding-bottom:  5px;
+    /* line-height:  100px; */
+    height:  100px;
+}
+
+.col-xs-9.text-right {
+    position:  absolute;
+    right: 30px;
+    color:  white;
+}
+
+li.nav-item {
+    padding-left:  20px;
+}
+
+li.nav-item:hover {
+    background: #337ab7;
+}
+
+a.nav-link {padding-left:  20px;}
+
+a.nav-link:hover {
+    background: #337ab7;
+}
+
+ul.navbar-nav {
+    width: 100%;
+}
+
+h1{
+    color: #337ab7;
+}
+
+.dashboard-primary-color {
+    background: #337ab7;
+}
+
+.dashboard-red-color {
+    background: #D9534F;
+}
+
+.dashboard-green-color {
+    background: #5CB85C;
+}
+
+.dashboard-yellow-color {
+    background: #F0AD4E;
+}

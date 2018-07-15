@@ -1,20 +1,28 @@
-// cau hinh cho dong goi tap tin nguon va dich
+const path = require('path')
+
 module.exports = {
-    entry: './views/admin/index.js',
+    entry: './helper/app.jsx',
     output: {
-        filename: './public/bundle.js'
+        filename: 'bundle.js',
+        path: path.resolve( __dirname, 'public')
     },
     module: {
         loaders: [
             {
                 loader: 'babel-loader',
                 query:{
-                    presets: ['es2015' , 'react', 'stage-0']
+                    presets: ['es2015','react', 'stage-2'],
+                    plugins:[ 'transform-object-rest-spread' ]
                 },
-                test: /\.jsx?$/,
+                test: /\.jsx$/,
                 exclude: /node_modules/
             }
         ]
     },
-    devtool: 'cheap-source-map'
+    devtool: 'cheap-source-map',
+    devServer: {
+        contentBase: './public',
+        host: 'localhost',
+        port: '3000'
+    }
 }

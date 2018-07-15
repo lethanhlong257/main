@@ -217,6 +217,9 @@ app.use(function (err, req, res, next) {
 });
 
 app.get("/", require("./controller/index"));
+app.get("/admin", (req, res) => res.render("./admin/dashboard"))
+app.get("/admin/user", (req, res) => res.render("./admin/dashboard"))
+
 app.get("/test", loginRequired, (req, res) => {
     res.send({
         message: "dang nhap thanh cong voi token",

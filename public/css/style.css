@@ -239,6 +239,22 @@ h1{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.dashboard-bar {
+    background: #337ab7;
+    height:  3px;
+}
+
+.nav-dashboard-title-wrap {
+    height:  50px;
+    line-height:  50px;
+    padding-left:  50px;
+    background: #337AB7;
+    width:  100%;
+    color:  white;
+    font-size:  20px;
+    font-weight:  500;
+}
+
 .article a {
     color:  black;
 }
@@ -948,4 +964,20 @@ section.news {
 
 .good{
     color: #28a745;
+}
+
+.dashboard-content {
+    background: white;
+}
+
+.dashboard-footer {
+    background: #97A5B3;
+}
+
+.dashboard-hover:hover {
+    background: #337AB7;
+}
+
+.nav-item{
+    width: 100%;
 }
